@@ -1,0 +1,53 @@
+
+@media screen and (max-width: 800px){
+
+    .inside #footer {
+        width: 100%;
+    }
+
+    .inside nav h1 a {
+        color: #fff;
+        font-size: 1.4em;
+        font-weight: 200;
+        text-transform: uppercase;
+        letter-spacing: initial;
+    }
+
+    .inside #breadcrumb {
+        padding: 5px 10px 5px;
+        font-size: 1em;
+        list-style: none;
+        background-color: #eee;
+        font-size: 1em;
+        margin: 0;
+        width: calc(100% - 10px);
+    }
+
+    .inside #map-container {
+        background: blue none repeat scroll 0 0;
+        height: 200px;
+        position: fixed;
+        left: 0;
+        top: 70px;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .inside #maincontent {
+        padding-top: 170px;
+    }
+
+    .inside #restaurant-container, .inside #reviews-container {
+        width: 100%;
+    }
+
+
+}
+
+
+@media screen and (min-width: 801px){
+    header nav h1 a {
+        color: #ff0;
+    }
+}
+
