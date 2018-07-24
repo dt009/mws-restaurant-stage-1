@@ -78,7 +78,7 @@ initMap = () => {
         scrollWheelZoom: false
     });
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-        mapboxToken: '<your MAPBOX API KEY HERE>',
+        mapboxToken: 'pk.eyJ1IjoiZHQwMDkiLCJhIjoiY2pqejBsN2swNjBkdTNxcm11cDAybHgzbSJ9.nLBJ000ngpkT5yHbnjRn6g',
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -160,10 +160,11 @@ createRestaurantHTML = (restaurant) => {
     
     const image = document.createElement('img');
     image.className = 'restaurant-img';
+    image.alt = ' An image of a restaurant named MISSION CHINESE FOOD ';
     image.src = DBHelper.imageUrlForRestaurant(restaurant);
     li.append(image);
     
-    const name = document.createElement('h1');
+    const name = document.createElement('h3');
     name.innerHTML = restaurant.name;
     li.append(name);
     
@@ -178,7 +179,8 @@ createRestaurantHTML = (restaurant) => {
     const more = document.createElement('a');
     more.innerHTML = 'View Details';
     more.href = DBHelper.urlForRestaurant(restaurant);
-    li.append(more)
+    more.setAttribute('aria-label', 'View Details');
+    li.append(more);
     
     return li
 }

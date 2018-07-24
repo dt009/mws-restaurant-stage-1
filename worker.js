@@ -12,11 +12,10 @@ let cacheName = 'v0';
 self.addEventListener('install', event => {
     event.waitUntil(caches.open(cacheName).then(cache => {
         return cache.addAll([
-            '/',
-            '/index.html',
+            // '/',
+            // '/index.html',
             '/restaurant.html',
-            'service-worker.js',
-            '/js/app.js',
+            '/worker.js',
             '/js/dbhelper.js',
             '/js/main.js',
             '/js/restaurant_info.js',
@@ -64,8 +63,8 @@ self.addEventListener('fetch', event => {
                     cache.put(event.request, res.clone())
                 });
                 
-                return response;
-            }).catch(function(err) {
+                return res;
+            }).catch(err => {
                 console.log(err);
             });
         }
