@@ -13,7 +13,7 @@ self.addEventListener('install', event => {
     event.waitUntil(caches.open(cacheName).then(cache => {
         return cache.addAll([
             // '/',
-            // '/index.html',
+            '/index.html',
             '/restaurant.html',
             '/worker.js',
             '/js/dbhelper.js',
@@ -59,8 +59,11 @@ self.addEventListener('fetch', event => {
         }
         else {
             return fetch(event.request).then(res => {
+                
+                let resCache = res.clone();
+                
                 caches.open(cacheName).then(cache => {
-                    cache.put(event.request, res.clone())
+                    cache.put(event.request, resCache)
                 });
                 
                 return res;

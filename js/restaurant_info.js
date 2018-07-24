@@ -88,7 +88,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
     
     const image = document.getElementById('restaurant-img');
     
-    image.alt = ' An image of a restaurant named MISSION CHINESE FOOD ';
+    image.alt = ` An image of a restaurant named ${restaurant.nam} `;
     
     image.className = 'restaurant-img';
     

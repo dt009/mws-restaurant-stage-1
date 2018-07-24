@@ -160,7 +160,9 @@ createRestaurantHTML = (restaurant) => {
     
     const image = document.createElement('img');
     image.className = 'restaurant-img';
-    image.alt = ' An image of a restaurant named MISSION CHINESE FOOD ';
+    
+    image.alt = `An image of a restaurant named ${restaurant.name}`
+    
     image.src = DBHelper.imageUrlForRestaurant(restaurant);
     li.append(image);
     
@@ -203,27 +205,6 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     
 };
 
-
-function sw() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('worker.js', {scope: '/'}).then(reg => {
-            
-            if (reg.installing) {
-                console.log('installing, 正在安装');
-            } else if (reg.waiting) {
-                console.log('installed 安装完');
-            } else if (reg.active) {
-                console.log('active 活跃');
-            }
-            
-        }).catch(err => {
-                console.log(err);
-            }
-        );
-    }
-}
-
-sw();
 
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
